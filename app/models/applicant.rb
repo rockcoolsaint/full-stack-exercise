@@ -9,6 +9,7 @@ class Applicant < ApplicationRecord
   validates :funding, numericality: true, presence: true
 
   belongs_to :project
+  has_many :comments
 
   enum status: { applied: 0, initial_review: 1, more_information_required: 2, declined: 3, approved: 4 }
 
