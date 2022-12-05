@@ -10,7 +10,9 @@ class ApplicantsController < ApplicationController
   end
 
   # GET /applicants/1
-  def show; end
+  def show
+    @latest_comment = @applicant.comments.order(created_at: :desc)[0]
+  end
 
   # GET /applicants/new
   def new
@@ -33,7 +35,10 @@ class ApplicantsController < ApplicationController
 
   # PATCH/PUT /applicants/1
   def update
-    if @applicant.update(applicant_params)
+    if @applicant.update!(applicant_params)
+      
+      comment = @applicant.comments.create!(body: params[:applicant][:comment])
+      
       redirect_to @applicant, notice: 'Applicant was successfully updated.'
     else
       render :edit, status: :unprocessable_entity

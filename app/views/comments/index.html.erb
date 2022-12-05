@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Comments about <%= @applicant.name %> </h1>
+
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= render comment %>
+    
+  <% end %>
+</div>
+
+<%= link_to "New comment", new_comment_path %>

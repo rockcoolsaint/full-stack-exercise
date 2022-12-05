@@ -1,7 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @applicant %>
-
+<div>
+  <span><strong>Status comment: </strong></span> &nbsp; <span><%= @latest_comment.body %></span>
+  <%= link_to "View comment history", applicant_comments_path(@applicant) %>
+</div>
+<p></p>
 <div>
   <%= link_to "Edit this applicant", edit_applicant_path(@applicant) %> |
   <%= link_to "Back to applicants", applicants_path %>
