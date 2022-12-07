@@ -5,7 +5,10 @@ The issue borders largely on two main areas
 - poor design architecture
 
 #### DB queries
-A lot of the DB queries could have been made more efficient via eagerloading as opposed to the nested queries that is currently implemented. Simply put, it's the classic "N+1" query problem.
+A lot of the DB queries could have been made more efficient via options like using `inverse_of` and eagerloading as opposed to the nested queries that is currently implemented.
+
+Simply put, it's the classic "N+1" query problem. Adding the `inverse_of` option in the associations between the Applicant and Project model ensures that the instances of both classes are saved in memory and eliminating the "N+!" query problem
+
 This alone would cut down on the time the server takes to execute the DB requests and making the resources available to the application
 
 #### Design issues
