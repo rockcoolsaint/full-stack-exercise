@@ -5,7 +5,7 @@ The issue borders largely on two main areas
 - poor design architecture
 
 #### DB queries
-A lot of the DB queries could have been made more efficient via eagerloading as opposed to the nested queries that is currently implemented.
+A lot of the DB queries could have been made more efficient via eagerloading as opposed to the nested queries that is currently implemented. Simply put, it's the classic "N+1" query problem.
 This alone would cut down on the time the server takes to execute the DB requests and making the resources available to the application
 
 #### Design issues
